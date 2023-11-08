@@ -88,6 +88,7 @@ const DropdownComponent: <T>(
       accessibilityLabel,
       itemAccessibilityLabelField,
       mode = 'default',
+      ModalComponent = Modal,
     } = props;
 
     const ref = useRef<View>(null);
@@ -591,7 +592,7 @@ const DropdownComponent: <T>(
           }
 
           return (
-            <Modal
+            <ModalComponent
               transparent
               statusBarTranslucent
               visible={visible}
@@ -634,13 +635,14 @@ const DropdownComponent: <T>(
                   </View>
                 </View>
               </TouchableWithoutFeedback>
-            </Modal>
+            </ModalComponent>
           );
         }
         return null;
       }
       return null;
     }, [
+      ModalComponent,
       visible,
       search,
       position,

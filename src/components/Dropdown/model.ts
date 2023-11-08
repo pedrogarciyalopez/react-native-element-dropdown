@@ -6,11 +6,15 @@ import type {
   ImageStyle,
   FlatListProps,
 } from 'react-native';
+import React from 'react';
+import { Modal } from 'react-native';
 
 export type IDropdownRef = {
   open: () => void;
   close: () => void;
 };
+
+type ModalComponentType = {} & typeof Modal;
 
 export interface DropdownProps<T> {
   ref?:
@@ -66,4 +70,5 @@ export interface DropdownProps<T> {
   searchQuery?: (keyword: string, labelValue: string) => boolean;
   onChangeText?: (search: string) => void;
   onConfirmSelectItem?: (item: T) => void;
+  ModalComponent?: ModalComponentType;
 }

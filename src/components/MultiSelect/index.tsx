@@ -93,6 +93,7 @@ const MultiSelectComponent: <T>(
       itemAccessibilityLabelField,
       visibleSelectedItem = true,
       mode = 'default',
+      ModalComponent = Modal,
     } = props;
 
     const ref = useRef<View>(null);
@@ -586,7 +587,7 @@ const MultiSelectComponent: <T>(
           }
 
           return (
-            <Modal
+            <ModalComponent
               transparent
               statusBarTranslucent
               visible={visible}
@@ -629,13 +630,14 @@ const MultiSelectComponent: <T>(
                   </View>
                 </View>
               </TouchableWithoutFeedback>
-            </Modal>
+            </ModalComponent>
           );
         }
         return null;
       }
       return null;
     }, [
+      ModalComponent,
       visible,
       search,
       position,

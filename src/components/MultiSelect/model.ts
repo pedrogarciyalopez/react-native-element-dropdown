@@ -5,11 +5,15 @@ import type {
   TextStyle,
   ViewStyle,
 } from 'react-native';
+import React from 'react';
+import { Modal } from 'react-native';
 
 export interface IMultiSelectRef {
   open: () => void;
   close: () => void;
 }
+
+type ModalComponentType = {} & typeof Modal;
 
 export interface MultiSelectProps<T> {
   ref?:
@@ -73,4 +77,5 @@ export interface MultiSelectProps<T> {
   searchQuery?: (keyword: string, labelValue: string) => boolean;
   onChangeText?: (search: string) => void;
   onConfirmSelectItem?: (item: any) => void;
+  ModalComponent?: ModalComponentType;
 }
